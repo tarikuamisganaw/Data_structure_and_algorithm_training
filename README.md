@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains Python implementations of a max-heap and a graph using an adjacency list.
+This repository contains Python implementations of a max-heap and a graph using an adjacency list,including heap operations and graph traversals.
 
 ## Tasks Completed
 
