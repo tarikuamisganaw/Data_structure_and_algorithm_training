@@ -42,7 +42,7 @@ class Graph:
         Parameters:
         val1: The value of the first node.
         val2: The value of the second node.
-        directed (bool): Whether the edge is directed or undirected.
+        directed (bool):check  Whether the edge is directed or undirected.
         """
         if val1 in self.nodes and val2 in self.nodes:
             node1 = self.nodes[val1]
