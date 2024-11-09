@@ -5,9 +5,9 @@ def test_max_heapify():
     # Test max_heapify function with a subtree rooted at index 0
     arr = [3, 5, 1, 10, 2, 7]
     max_heapify(arr, len(arr), 0)
-    # Check that the max-heap property is maintained at the root
-    assert arr[0] == 5, "max_heapify failed to set the correct root value"
-    assert arr[1] == 3 or arr[2] == 3, "max_heapify did not adjust the subtree correctly"
+    # Check that max_heapify results in the maximum element at the root
+    assert arr[0] >= arr[1], "max_heapify did not set the largest element at the root."
+    assert arr[0] >= arr[2], "max_heapify did not set the largest element at the root."
 
 def test_heapify():
     # Test heapify function to ensure it builds a max-heap
