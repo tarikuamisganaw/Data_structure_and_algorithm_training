@@ -1,7 +1,7 @@
 import pytest
-from dfs_ and_bfs_implemenation.py import Graph, dfs, bfs
+from dfs_and_bfs_implementation import Graph, dfs, bfs
 
-
+@pytest.fixture
 def sample_graph():
     # Create the graph and add nodes and edges as in the original code
     graph = Graph()
@@ -11,7 +11,6 @@ def sample_graph():
     for val in cities:
         graph.add_node(val)
 
-    # Add edges between pairs of cities
     edges = [
         ("New York", "Los Angeles"), ("New York", "Chicago"), ("New York", "Houston"),
         ("Los Angeles", "Chicago"), ("Los Angeles", "Houston"), ("Chicago", "Houston"),
