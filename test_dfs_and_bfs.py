@@ -1,5 +1,5 @@
 import pytest
-from dfs_and_bfs_implementation import Graph, dfs, bfs
+from dfs_ and_bfs_implemenation.py import Graph, dfs, bfs
 
 
 def sample_graph():
