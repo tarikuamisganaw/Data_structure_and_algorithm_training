@@ -1,6 +1,6 @@
 def max_heapify(arr, n, i):
     """
-    Maintain the max-heap property for the subtree rooted at index i.
+    Maintain the max-heap property for the subtree rooted at index i iteratively.
 
     Parameters:
     arr (list): The array representing the heap.
@@ -9,21 +9,24 @@ def max_heapify(arr, n, i):
     """
     largest = i
     while True:
-        l = 2 * largest + 1  # Left child index
-        r = 2 * largest + 2  # Right child index
+        left = 2 * largest + 1  # Left child index
+        right = 2 * largest + 2  # Right child index
+        swap = False
 
-        # If the left child exists and is greater, update largest
-        if l < n and arr[l] > arr[largest]:
-            largest = l
-        
-        # If the right child exists and is greater, update largest
-        if r < n and arr[r] > arr[largest]:
-            largest = r
+        # If the left child exists and is greater than the current largest
+        if left < n and arr[left] > arr[largest]:
+            largest = left
+            swap = True
 
-        # If largest is still the current index, break
-        if largest == i:
+        # If the right child exists and is greater than the current largest
+        if right < n and arr[right] > arr[largest]:
+            largest = right
+            swap = True
+
+        # If the largest is still the current index, break the loop
+        if not swap:
             break
-        
+
         # Swap and continue heapifying
-        arr[i], arr[largest] = arr[largest], arr[i]
+        arr[largest], arr[i] = arr[i], arr[largest]
         i = largest
