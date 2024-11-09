@@ -10,29 +10,29 @@ def max_heapify(arr, n, i):
     largest = i
     l = 2 * i + 1
     r = 2 * i + 2
+
     # Update largest if left child is greater
     if l < n and arr[l] > arr[largest]:
         largest = l
     # Update largest if right child is greater    
     if r < n and arr[r] > arr[largest]:
         largest = r
+
     # If largest is not the current index, swap and recursively apply max-heapify
     if largest != i:
         arr[i], arr[largest] = arr[largest], arr[i]
         max_heapify(arr, n, largest)
 
-# Build a max heap from the given array
 def heapify(arr):
     """
     Build a max heap from the given array.
-    which changes a list to a heap order
+    
     Parameters:
     arr (list): The array to be transformed into a max heap.
     """
-    n = len(arr) 
-    # Start from the last non-leaf node and go up to the root
-    for i in range(n // 2, -1, -1):
-        max_heapify(arr, n, i)  # Call max_heapify on the current node
+    n = len(arr)
+    for i in range(n // 2 - 1, -1, -1):
+        max_heapify(arr, n, i)
        
 def heap_sort(arr):
     """
@@ -42,18 +42,14 @@ def heap_sort(arr):
     arr (list): The array to be sorted.
     """
     n = len(arr)
-    # Call heapify on the array to satisfy the heap property
-    heapify(arr)  
+    heapify(arr)
 
-    i = n - 1 
-    while i > 0:
-        # Swap the root node with the last element
-        arr[i], arr[0] = arr[0], arr[i] 
-        # Restore the heap property
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]
         max_heapify(arr, i, 0)
-        i -= 1
 
-# Test heap-sort function 
-arr = [3, 5, 1, 10, 2, 7]
-heap_sort(arr)
-print(arr)
+# Test the heap sort
+if __name__ == "__main__":
+    arr = [3, 5, 1, 10, 2, 7]
+    heap_sort(arr)
+    print("Sorted array:", arr)
