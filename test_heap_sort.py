@@ -1,15 +1,35 @@
-from heap_sort import max_heapify, heap_sort
+import pytest
+from heap_sort import heap_sort
 
-def test_max_heapify():
-    # Test max_heapify function with a subtree rooted at index 0
-    arr = [3, 5, 1, 10, 2, 7]
-    max_heapify(arr, len(arr), 0)
-    # Check if the largest of the root and its immediate children is at the root
-    assert arr[0] == max(arr[0], arr[1], arr[2]), "max_heapify did not set the largest element at the root."
+def test_sorted_array():
+    arr = [1, 2, 3, 4, 5]
+    heap_sort(arr)
+    assert arr == [1, 2, 3, 4, 5]
 
-def test_heap_sort():
-    # Test heap_sort function with an unsorted array
+def test_reverse_sorted_array():
+    arr = [5, 4, 3, 2, 1]
+    heap_sort(arr)
+    assert arr == [1, 2, 3, 4, 5]
+
+def test_unsorted_array():
     arr = [3, 5, 1, 10, 2, 7]
     heap_sort(arr)
-    # Verify if the array is sorted in ascending order
-    assert arr == sorted(arr), "heap_sort did not sort the array correctly"
+    assert arr == [1, 2, 3, 5, 7, 10]
+
+def test_empty_array():
+    arr = []
+    heap_sort(arr)
+    assert arr == []
+
+def test_single_element_array():
+    arr = [42]
+    heap_sort(arr)
+    assert arr == [42]
+
+def test_identical_elements():
+    arr = [7, 7, 7, 7]
+    heap_sort(arr)
+    assert arr == [7, 7, 7, 7]
+
+if __name__ == "__main__":
+    pytest.main()
