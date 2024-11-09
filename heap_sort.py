@@ -13,18 +13,14 @@ def max_heapify(arr, n, i):
     # Update largest if left child is greater
     if l < n and arr[l] > arr[largest]:
         largest = l
-    else:
-        largest = i
     # Update largest if right child is greater    
     if r < n and arr[r] > arr[largest]:
         largest = r
-    """
-    If largest is not the current index, swap and recursively 
-    apply max-heapify on the largest index.
-    """ 
+    # If largest is not the current index, swap and recursively apply max-heapify
     if largest != i:
         arr[i], arr[largest] = arr[largest], arr[i]
         max_heapify(arr, n, largest)
+
 # Build a max heap from the given array
 def heapify(arr):
     """
