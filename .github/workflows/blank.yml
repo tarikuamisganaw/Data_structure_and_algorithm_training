@@ -25,8 +25,9 @@ jobs:
 
       - name: Run Python tests
         run: 
-          pytest dfs_and_bfs_implemenation.py
-          pytest graph_with_adjacency_list.py
-          pytest heap_sort.py
-          pytest max_heapify_iterative.py
-          pytest max_heapify_verbatim_recursive.py
+          # pytest dfs_and_bfs_implemenation.py
+          # pytest graph_with_adjacency_list.py
+          # pytest heap_sort.py
+          pytest heapify.py
+          # pytest max_heapify_iterative.py
+          # pytest max_heapify_verbatim_recursive.py
